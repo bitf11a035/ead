@@ -1,0 +1,58 @@
+﻿@model finalproject3.Models.Customer
+@{
+    ViewBag.Title = "checkout";
+    Layout = "~/Views/Shared/_Layoutdish.cshtml";
+}
+@section tabs{
+    <div class="menu-row">
+            	<div class="menu-border">
+                	<div class="main">
+                        <nav>
+                            <ul class="menu">
+                                <li><a class="active" href="/Home/index">Main</a></li>
+                                
+                                <li><a href="/Customer/calendar">Dishes To Order</a></li>
+                                
+                                <li><a href="/Account/login">  Log Out</a></li>
+                                <li class="last"><a href="/Home/contacts">Contacts</a></li>
+                                <li><a href="/Home/about">About Us</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+}
+<h1><strong>Checkout</strong></h1>
+<div>
+            <h5><strong>BILLING INFORMATION</strong></h5>
+            <div class="content_half float_l checkout">
+				Full Name (must be same as on your credit card):  <br />
+                  @ViewBag.X.username
+                <br />
+                <br />
+              Address: <br />
+				@ViewBag.X.Address  
+                <br />
+                <br />
+              City: <br />
+                @ViewBag.X.City  
+                <br />
+                <br />
+                Country: <br />
+                @ViewBag.X.Country
+            </div>
+            
+            <div class="content_half float_r checkout">
+            	E-MAIL <br />
+				@ViewBag.X.email
+                <br />
+                <br />
+          PHONE<br />
+				@ViewBag.X.phoneno
+            </div>
+            
+            <div class="cleaner h50"></div>
+            <h3>SHOPPING CART</h3>
+            <h4>TOTAL AMOUNT: <strong>Rs. 500</strong></h4>
+			
+        </div> 

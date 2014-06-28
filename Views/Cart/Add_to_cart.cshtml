@@ -1,0 +1,57 @@
+﻿@model finalproject3.Models.Order
+@{
+    ViewBag.Title = "Add_to_cart";
+    Layout = "~/Views/Shared/_Layoutdish.cshtml";
+}
+@section tabs{
+    <div class="menu-row">
+            	<div class="menu-border">
+                	<div class="main">
+                        <nav>
+                            <ul class="menu">
+                                <li><a class="active" href="/Home/index">Main</a></li>
+                                
+                                <li><a href="/Customer/calendar">Dishes To Order</a></li>
+                                
+                                <li><a href="/Account/logout">  Log Out</a></li>
+                                <li class="last"><a href="/Home/contacts">Contacts</a></li>
+                                <li><a href="/Home/about">About Us</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+}
+<h1>Cart</h1>
+ <div id="content" class="float_r">
+        	<table width="680px" cellspacing="0" cellpadding="5">
+                   	  <tr bgcolor="#ddd">
+                        	<th width="180" align="left">Description </th> 
+                       	  	<th width="100" align="center">Quantity </th> 
+                             <th width="100" align="center">Date </th> 
+                        	<th width="60" align="right">Price </th> 
+                        	<th width="60" align="right">Total </th> 
+                        	<th width="90"> </th>
+
+                            
+                      </tr>
+            
+              @foreach(var x in ViewBag.X)
+              {
+                    	<tr>
+                        	<td>@x.name</td> 
+                            <td align="center">@x.quantity </td>
+                            <td align="right">Rs. @x.Date </td>
+                            <td align="right">Rs. @x.price </td> 
+                            <td align="right">Rs. @x.Amount </td>  
+                            <td align="center"> @Html.ActionLink("Remove", "removedishfromcart", new { id=x.OId })</td>
+						</tr>
+              }
+               
+                </table>
+                    <div style="float:right; width: 215px; margin-top: 20px;">
+					<p><a href="/Cart/checkout">Proceed to checkout</a></p>
+                    <p><a href="/Customer/ordernow">Continue shopping</a></p>
+                    	
+                    </div>
+			</div>
