@@ -1,0 +1,52 @@
+@model finalproject3.Models.DishProduct
+@{
+    ViewBag.Title = "calender";
+    Layout = "~/Views/Shared/_Layoutdish.cshtml";
+}
+@section tabs{
+     <div class="menu-row">
+            	<div class="menu-border">
+                	<div class="main">
+                        <nav>
+                            <ul class="menu">
+                               <li><a class="active" href="/Home/index">Main</a></li>
+                                
+                                <li><a href="/Customer/calendar">Dish to Order</a></li>
+                                <li class="last"><a href="/Home/contacts">Contacts</a></li>
+
+                                <li><a href="/Account/logout">Log Out</a></li>
+                                <li><a href="/Account/signup">Sign Up</a></li>
+                                <li><a href="/Home/about">About Us</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+ }
+<article class="col-1">
+                                <div class="bg">
+                                    <div class="padding">
+                                    	<h2 class="p2">Dishes</h2>
+                                        <div class="wrapper p3">
+                                              
+                                           
+@foreach(var x in ViewBag.X)
+    {
+                    <figure class="img-indent" ><img src="~/images/@x.Imagepath" alt="" width="50%" height="50%"/> 
+                                            <div class="extra-wrap" >
+                                            	<h3>@x.Name</h3>
+                                                <p class="p1">Quantity: @x.Quantity</p>
+                                                <p class="p1">Region: @x.Region</p>
+                                                <p class="p1">Price: Rs: @x.Price/1kg</p>
+                                                <p class="p1">Category: @x.category</p>
+                                                <p  class="p1"> @Html.ActionLink("Order Now", "ordernow", new { id=x.DPId })</p>
+                                                <br />
+                                              
+                                            </div>
+                                                </figure>
+    }
+                                              </div>
+                                         </div>
+                                </div>
+   
+    </article>
