@@ -11,6 +11,8 @@
         <EntityTypeShape EntityType="finalproject3Model.Admin" Width="1.5" PointX="10.125" PointY="4.625" />
         <EntityTypeShape EntityType="finalproject3Model.Customer" Width="1.5" PointX="13.125" PointY="6.125" />
         <AssociationConnector Association="finalproject3Model.FK_Order_ToTable" />
+        <EntityTypeShape EntityType="finalproject3Model.OrderDetail" Width="1.5" PointX="8.5" PointY="7" />
+        <AssociationConnector Association="finalproject3Model.FK_OrderDetails_ToTable" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

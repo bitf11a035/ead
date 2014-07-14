@@ -1,8 +1,8 @@
-﻿@model finalproject3.Models.Order
-@{
-    ViewBag.Title = "Add_to_cart";
+﻿@{
+    ViewBag.Title = "viewcustomerorders";
     Layout = "~/Views/Shared/_Layoutdish.cshtml";
 }
+
 @section tabs{
     <div class="menu-row">
             	<div class="menu-border">
@@ -26,11 +26,9 @@
  <div id="content" class="float_r">
         	<table width="680px" cellspacing="0" cellpadding="5">
                    	  <tr bgcolor="#ddd">
-                        	<th width="180" align="left">Description </th> 
-                       	  	<th width="100" align="center">Quantity </th> 
-                             <th width="100" align="center">Date </th> 
-                        	<th width="60" align="right">Price </th> 
-                        	<th width="60" align="right">Total </th> 
+                        	<th width="180" align="left">Order ID </th> 
+                       	  	<th width="100" align="center">Date </th> 
+                             <th width="100" align="center">Amount </th> 
                         	<th width="90"> </th>
 
                             
@@ -38,14 +36,11 @@
             
               @foreach(var x in ViewBag.X)
               {
-                    	<tr>
-                        	<td>@x.name</td> 
-                            <td align="center">@x.quantity </td>
-                            <td align="right">Rs. @x.Date </td>
-                            <td align="right">Rs. @x.price </td> 
-                            <td align="right">Rs. @x.Amount </td>  
-                            <td align="center"> @Html.ActionLink("Remove", "removedishfromcart", new { id=x.OId })</td>
-						</tr>
+                    	<tr> 
+                            <td align="center">@x.orderdetailId </td>
+                            <td align="right">Rs. @x.dateoforder </td>
+                            <td align="right">Rs. @x.Amount </td> 
+                            </tr>
               }
                
                 </table>

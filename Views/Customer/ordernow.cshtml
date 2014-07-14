@@ -25,7 +25,7 @@
 <div>
 <img src="~/images/@ViewBag.X.Imagepath" alt="" width="40%" height="40%"/>
       </div> 
-@using (Html.BeginForm("ordernow","Customer",FormMethod.Post))
+@using (Html.BeginForm("ordernowconfirm", "Customer", FormMethod.Post))
 {
     @Html.ValidationSummary(true)
 <fieldset>
@@ -68,14 +68,15 @@
         @Html.DisplayFor(model => model.Price)
     </div>
     <div>
-        Enter quantity to order: <input type="number" name="quantity" id="quantity"}) />
+       Enter quantity to order: @Html.TextBox("quan");
+        @*Enter quantity to order: <input type="number" name="quantity" id="quantity"})*@ 
     </div>
        
 </fieldset>
 
     <p>
-        @Html.ActionLink("Add to cart", "ordernowconfirm", new {id=ViewBag.X.DPId })
-       @* <input class="button-2" type="submit" value="Add to cart" id="@ViewBag.X.DPId" /> *@
+       @* @Html.ActionLink("Add to cart", "ordernowconfirm", new {id=ViewBag.X.DPId })*@
+        <input class="button-2" type="submit" value="Add to cart"@* id="@ViewBag.X.DPId"*@ /> 
     </p>
 }
 @*<article class="col-1">

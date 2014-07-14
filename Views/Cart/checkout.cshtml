@@ -26,8 +26,8 @@
 <div>
             <h5><strong>BILLING INFORMATION</strong></h5>
             <div class="content_half float_l checkout">
-				Full Name (must be same as on your credit card):  <br />
-                  @ViewBag.X.username
+				Full Name:  <br />
+                 @ViewBag.X.username
                 <br />
                 <br />
               Address: <br />
@@ -53,6 +53,6 @@
             
             <div class="cleaner h50"></div>
             <h3>SHOPPING CART</h3>
-            <h4>TOTAL AMOUNT: <strong>Rs. 500</strong></h4>
-			
+            <h4>TOTAL AMOUNT: <strong>@ViewBag.X.checkoutamount</strong></h4>
+			<p style="margin-right:400px"><a href="/Cart/viewcustomerorders">View All Orders</a></p>
         </div> 

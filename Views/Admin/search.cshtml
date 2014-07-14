@@ -2,16 +2,35 @@
     ViewBag.Title = "search";
     Layout = "~/Views/Shared/_Layoutdish.cshtml";
 }
-
-
-
-<form action="/Admin/search2">
+@section tabs{
+    <div class="menu-row">
+            	<div class="menu-border">
+                	<div class="main">
+                        <nav>
+                            <ul class="menu">
+                                <li><a class="active" href="/Home/index">Main</a></li>
+                                
+                                <li><a href="/Customer/calendar">View all Dishes</a></li>
+                                
+                                <li><a href="/Account/login">  Log Out</a></li>
+                                <li class="last"><a href="/Home/contacts">Contacts</a></li>
+                                <li><a href="/Home/about">About Us</a></li>
+                                <li><a href="/Admin/Gallery">Gallery</a></li>
+                                 
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+}
 <div    align="center">
+<form action="/Admin/search2">
+
     Enter ID: <input type="text" name="search" id="search" /> 
          <input type="button" id="b1" value="Check" /><br />
      <input type="submit" id="b2" value="Show Details" /><br />
     </form>
-
+</div>
 
     <div id="result"></div>
     
@@ -26,19 +45,33 @@
 
                 // alert('User Name ='+ userName);
                 $('#checking').show();
-                $.getJSON("/Admin/search3?Name=" + userName, function (data) {
+                $.getJSON("/Admin/search3?userName=" + userName, function (data) {
                     $('#checking').hide();
-                    if (data) {
-                        $('#result').text("ID is Valid");
+                        $.each(data, function (i, item) {
+                            $('#result').append('<figure class=img-indent ><img src=~/images/' + item.Imagepath + 'width=50% height=50%/><div class=extra-wrap ><h3>' + item.Name + '</h3><p class=p1>Quantity: ' + item.Quantity + '</p><p class=p1>Region: ' + item.Region + '</p><p class=p1>Category: ' + item.category + '</p></div></figure>');
 
-                    }
-                    else {
-                        $('#result').text("ID is invalid");
-                    }
+                        });
+
+                        $('#result').text("ID is Valid");
+                        //var output = "";
+                        //for (var i in data) {
+                        //    output += "<figure class=img-indent ><img src=~/images/"+data[i].Imagepath +"width=50% height=50%/>"; 
+                        //    output += "<div class=extra-wrap >";
+                        //    output += "<h3>"+data[i].Name+"</h3>";
+                        //    output +="<p class=p1>Quantity: "+ data[i].Quantity+"</p>";
+                        //    output +="<p class=p1>Region: "+ data[i].Region+"</p>";
+                        //    output += "<p class=p1>Price: Rs: " + data[i].Price + " /1kg</p>";
+                        //    output += "<p class=p1>Category: " + data[i].category + "</p>";
+                        //    output += "</div>";
+                        //    output += "</figure>";
+                        //}
+                    
+                        //document.getElementById("placeholder").innerHTML = output;
+
+                   
                 });
 
             });
 
         });
     </script>
-</div>
